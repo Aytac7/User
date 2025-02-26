@@ -1,23 +1,24 @@
-#User və Profile Layihəsi
+# User və Profile Layihəsi
 Bu layihə, #User və #Profile servislərini bir-biri ilə əlaqələndirmək üçün Feign Client və Interceptor Aspect istifadə edən bir tətbiqdir.
 
-Təsvir
+# Təsvir
 Bu sistemdə iki əsas komponent var:
 
 User: İstifadəçi məlumatlarını idarə edən bir mikroservis.
 Profile: İstifadəçi profil məlumatlarını idarə edən başqa bir mikroservis.
 User mikroservisi, Profile mikroservisini çağırmaq üçün Feign Client istifadə edir. Interceptor Aspect isə User layihəsində tətbiq edilib və Feign client sorğularını izləmək üçün istifadə olunur.
 
-##Əsas Texnologiyalar
+## Əsas Texnologiyalar
 Spring Boot: Mikroservislərin əsas çərçivəsi.
-Feign Client: Mikroservislər arasında əlaqə qurmaq üçün istifadə edilir.
-Aspect-Oriented Programming (AOP): Yalnızca User layihəsində tətbiq edilən, sorğuları izləmək üçün istifadə olunan aspektlər.
-Spring Cloud: Feign Client istifadəsini asanlaşdıran texnologiya.
-Layihə Quruluşu
+**Feign Client**: Mikroservislər arasında əlaqə qurmaq üçün istifadə edilir.
+**Aspect-Oriented Programming (AOP)**: Yalnızca User layihəsində tətbiq edilən, sorğuları izləmək üçün istifadə olunan aspektlər.
+**Interceptor** sorğulara və cavablara müdaxilə edir.
+
+# Layihə Quruluşu
 1. User Microservice
 User mikroservisi, istifadəçi məlumatlarını idarə edir və Profile mikroservisini Feign Client ilə çağırır.
 
-Feign Client:
+**Feign Client**:
 ProfileServiceClient: Profile mikroservisinin API-larını çağıran Feign Client interfeysidir.
 Interceptor Aspect:
 RequestInterceptor: Feign Client sorğuları üçün xüsusi başlıqlar, parametrlər və loqların əlavə edilməsini təmin edən interceptor.
